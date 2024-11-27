@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure payment form for online transactions">
+    <title>Payment Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./paymentForm.css" />
+  </head>
+  <body>
+    <main>
+      <form class="payment-form">
+        <h1 class="form-title">PAYMENT</h1>
+        <div class="input-group">
+          <label class="user-input-label" for="name">Name</label>
+          <input type="text" class="user-input" id="name" placeholder="Enter your name" data-error-target="nameError"required/>
+          <span id="nameError" class="error-message hidden">Please enter your name</span>
+        </div>
+        <div class="input-group">
+          <label class="user-input-label" for="cc">Card Number</label>
+          <input type="text" class="user-input" id="cc" 
+            placeholder="X X X X  X X X X  X X X X  X X X X" maxLength=19 data-error-target="ccError" required/>
+          <span id="ccError" class="error-message hidden" >Card Number must be between 16 to 19 digits</span>
+        </div>
+        <div class="grouped-input">
+          <div class="input-group">
+            <label class="user-input-label" for="cvc">CVC</label>
+            <input type="text" class="user-input" id="cvc" maxLength="4"
+              title="Enter valid CVC" 
+              placeholder="X  X  X  X" required data-error-target="cvcError"/>
+            <span id="cvcError"  class="error-message hidden">CVC must be between 3 to 4 digits</span>
+          </div>
+          <div class="input-group">
+            <label class="user-input-label" for="expiry">Expiry Date</label>
+            <input type="text" class="user-input" id="expiry" 
+              title="Enter a valid date in this format MM/YY" maxlength="5"
+              placeholder="X X / X X" required data-error-target="expiryError"/>
+            <span id="expiryError" class="error-message hidden" >Date must be in MM/YY format</span>
+          </div>
+        </div>
+        <button class="form-submit-button" id="submit-payment" type="submit"> Pay Now </button>
+        <div class="payment-message"></div>
+      </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./payment.js"></script>
+  </body>
+</html>
